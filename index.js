@@ -5,6 +5,7 @@ const { Client, Collection, Events, GatewayIntentBits } = require('discord.js');
 //make available the .env variables
 require('dotenv').config();
 const token = process.env.DISCORD_TOKEN;
+
 const fs = require('node:fs');
 const path = require('node:path');
 
@@ -61,4 +62,8 @@ client.on(Events.InteractionCreate, async interaction => {
 			await interaction.reply({ content: 'There was an error while executing this command!', ephemeral: true });
 		}
 	}
+});
+
+client.on(Events.InteractionCreate, interaction => {
+	console.log(interaction);
 });
